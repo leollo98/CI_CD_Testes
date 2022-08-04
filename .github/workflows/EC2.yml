@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  docker:
+  EC2:
     runs-on: ubuntu-latest
     steps:
     - name: Download a Build Artifact
