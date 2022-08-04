@@ -64,4 +64,3 @@ jobs:
           export DBNAME=postgres
           nohup ./main &
           disown &
-          echo "ok"
