@@ -39,9 +39,9 @@ jobs:
           export PORT=5432
           export USER=postgres
           export PASSWORD=12345678
-          export DBNAME=root
+          export DBNAME=postgres
           nohup ./main &
         # Hostname or IP address of the remote server(s). Separate multiple servers with a blank space. Example: 'user@mydomain.com:22 user@otherdomain.com:2222'
-        hosts: 'ec2-user@ec2-54-198-222-123.compute-1.amazonaws.com'
+        hosts: 'ec2-user@44.203.44.165'
         # The private key (id_rsa) content for authenticating to the SSH server(s). Recommended to store it as a GitHub Secret.
         privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
