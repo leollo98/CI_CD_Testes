@@ -34,7 +34,7 @@ jobs:
       with:
        # Command(s) to execute on the remote server.
         command: |
-          chmod +x main
+          chmod +x main 
           export HOST='database-1.chpsm599tfcr.us-east-1.rds.amazonaws.com'
           export PORT=5432
           export USER=postgres
