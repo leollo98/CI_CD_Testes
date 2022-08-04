@@ -35,6 +35,11 @@ jobs:
        # Command(s) to execute on the remote server.
         command: |
           chmod +x main
+          export HOST=database-1.chpsm599tfcr.us-east-1.rds.amazonaws.com
+          export PORT=5432
+          export USER=postgres
+          export PASSWORD=12345678
+          export DBNAME=root
           nohup ./main &
         # Hostname or IP address of the remote server(s). Separate multiple servers with a blank space. Example: 'user@mydomain.com:22 user@otherdomain.com:2222'
         hosts: 'ec2-user@ec2-54-198-222-123.compute-1.amazonaws.com'
