@@ -63,3 +63,4 @@ jobs:
           export PASSWORD=12345678
           export DBNAME=postgres
           nohup ./main &
+          echo "ok"
