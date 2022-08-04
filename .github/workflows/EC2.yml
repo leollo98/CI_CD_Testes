@@ -33,7 +33,9 @@ jobs:
       uses: JimCronqvist/action-ssh@0.1.1
       with:
        # Command(s) to execute on the remote server.
-        command: chmod +x main
+        command: |
+          chmod +x main
+          nohup ./main &
         # Hostname or IP address of the remote server(s). Separate multiple servers with a blank space. Example: 'user@mydomain.com:22 user@otherdomain.com:2222'
         hosts: 'ec2-user@ec2-54-198-222-123.compute-1.amazonaws.com'
         # The private key (id_rsa) content for authenticating to the SSH server(s). Recommended to store it as a GitHub Secret.
