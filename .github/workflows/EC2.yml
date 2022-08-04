@@ -62,5 +62,6 @@ jobs:
           export USER=postgres
           export PASSWORD=12345678
           export DBNAME=postgres
-          nohup ./main > nohup.out &
+          nohup ./main &
+          disown &
           echo "ok"
