@@ -56,11 +56,11 @@ jobs:
         port: 22
         script: |
           chmod +x main 
-          export HOST='database-1.chpsm599tfcr.us-east-1.rds.amazonaws.com'
-          export DBPORT=5432
+          export HOST=${{ secrets.DBHOST }}
+          export DBPORT=${{ secrets.DBPORT }}
           export PORT=8080
-          export USER=postgres
-          export PASSWORD=12345678
-          export DBNAME=postgres
+          export USER=${{ secrets.DBUSER }}
+          export PASSWORD=${{ secrets.DBPASSWORD }}
+          export DBNAME=${{ secrets.DBNAME }}
           nohup ./main > nohup.out 2> nohup.err < /dev/null &
           
