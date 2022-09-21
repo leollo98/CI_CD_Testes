@@ -28,7 +28,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition.json
-        container-name: my-container
+        container-name: leonardosartorello/go_ci:${{ github.run_number }}
         image: leonardosartorello/go_ci:${{ github.GITHUB_RUN_NUMBER }}
 
     - name: Deploy Amazon ECS task definition
