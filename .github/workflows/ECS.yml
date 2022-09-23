@@ -43,7 +43,7 @@ jobs:
       continue-on-error: true
       run: |
         wget http://ec2co-ecsel-prh639uin5zt-1045366337.us-east-2.elb.amazonaws.com:8000/
-        echo "REQUEST=(echo $?)" >> $GITHUB_ENV
+        echo "REQUEST=$(echo $?)" >> $GITHUB_ENV
 
     - name: rollback
       if: ${{ env.REQUEST != 8 }}
