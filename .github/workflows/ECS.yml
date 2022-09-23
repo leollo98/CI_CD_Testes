@@ -49,9 +49,7 @@ jobs:
         
     - name: Request
       continue-on-error: true
-      run: sleep 30s ; wget ec2co-ecsel-1on764jf1vx3m-1396771799.us-east-2.elb.amazonaws.com:8000/leo
-    - run: echo "REQUEST=$(echo $?)" >> $GITHUB_ENV
-    - run: echo ${{ env.REQUEST }}
+      run: sleep 30s ; wget ec2co-ecsel-1on764jf1vx3m-1396771799.us-east-2.elb.amazonaws.com:8000/leo || echo "REQUEST=1" >> $GITHUB_ENV
 
     - name: rollback
       if: ${{ env.REQUEST }} =! 0
