@@ -46,7 +46,7 @@ jobs:
         echo "REQUEST=$(echo $?)" >> $GITHUB_ENV
 
     - name: rollback
-      if: ${{ env.REQUEST != 8 }}
+      if: ${{ env.REQUEST }}
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: task-definition.json.old
