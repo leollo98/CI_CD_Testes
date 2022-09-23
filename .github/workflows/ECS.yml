@@ -40,4 +40,10 @@ jobs:
         wait-for-service-stability: true
 
     - name: rollback
-      run: wget http://ec2co-ecsel-prh639uin5zt-1045366337.us-east-2.elb.amazonaws.com:8000/
+      if: ${{ wget http://ec2co-ecsel-prh639uin5zt-1045366337.us-east-2.elb.amazonaws.com:8000/ != 0 }}
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: task-definition.json.old
+        service: custom-service
+        cluster: default
+        wait-for-service-stability: true
