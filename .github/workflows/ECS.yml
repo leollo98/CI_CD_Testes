@@ -44,6 +44,7 @@ jobs:
       run: |
         wget http://ec2co-ecsel-prh639uin5zt-1045366337.us-east-2.elb.amazonaws.com:8000/
         echo "REQUEST=$(echo $?)" >> $GITHUB_ENV
+        echo ${{ env.REQUEST }}
 
     - name: rollback
       if: ${{ env.REQUEST }}
