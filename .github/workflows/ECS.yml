@@ -31,12 +31,12 @@ jobs:
         container-name: custom
         image: leonardosartorello/go_ci:${{ github.run_number }}
         environment-variables: |
-          export HOST=${{ secrets.DBHOST }}
-          export DBPORT=${{ secrets.DBPORT }}
-          export PORT=8000
-          export USER=${{ secrets.DBUSER }}
-          export PASSWORD=${{ secrets.DBPASSWORD }}
-          export DBNAME=${{ secrets.DBNAME }}
+          HOST=${{ secrets.DBHOST }}
+          DBPORT=${{ secrets.DBPORT }}
+          PORT=8000
+          USER=${{ secrets.DBUSER }}
+          PASSWORD=${{ secrets.DBPASSWORD }}
+          DBNAME=${{ secrets.DBNAME }}
         
 
     - name: Deploy Amazon ECS task definition
