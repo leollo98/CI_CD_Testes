@@ -52,7 +52,7 @@ jobs:
       run: sleep 30s ; echo "REQUEST=0" >> $GITHUB_ENV ; wget ec2co-ecsel-1on764jf1vx3m-1396771799.us-east-2.elb.amazonaws.com:8000/leo || echo "REQUEST=1" >> $GITHUB_ENV
 
     - name: rollback
-      if: ${{ env.REQUEST }} =! 0
+      if: ${{ env.REQUEST =! 0 }} 
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: task-definition.json.old
