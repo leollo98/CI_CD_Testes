@@ -27,9 +27,9 @@ jobs:
       uses: apardo04/locust-github-action@master
       with:
         URL:  "https://google.com"
-        USERS: "5"
+        USERS: "50"
         RATE: "5"
-        RUNTIME: "10s"
+        RUNTIME: "60s"
     
     
     - uses: actions/checkout@v3
