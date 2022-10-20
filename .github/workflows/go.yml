@@ -22,6 +22,16 @@ jobs:
         go_version: ['1.18', '1.17', '>=1.18']
         os: ['ubuntu-latest', 'ubuntu-18.04']
     steps:
+    
+    - name: Run Load Test
+      uses: apardo04/locust-github-action@master
+      with:
+        URL:  "https://google.com"
+        USERS: "5"
+        RATE: "5"
+        RUNTIME: "10s"
+    
+    
     - uses: actions/checkout@v3
 
     - name: Set up Go
