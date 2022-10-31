@@ -15,7 +15,7 @@ jobs:
     
     - run: ls -lha
     
-    - run: cd env/Homolog/
+    - run: cd Infra_CI/env/Homolog/
       
     - run: terraform init
     
