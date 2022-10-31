@@ -21,3 +21,13 @@ jobs:
     - run: terraform apply -auto-approve
     
     
+    - name: Run Load Test
+      uses: apardo04/locust-github-action@master
+      id: locust
+      with:
+        URL:  "https://google.com"
+        USERS: "50"
+        RATE: "5"
+        RUNTIME: "60s"
+    - name: output
+      run: echo ${{ steps.locust.outputs }}
