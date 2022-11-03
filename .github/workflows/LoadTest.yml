@@ -25,14 +25,10 @@ jobs:
     - run: terraform -chdir=Infra_CI/env/Homolog/ init
     
     - run: terraform -chdir=Infra_CI/env/Homolog/ apply -auto-approve
-        
-    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb
-        
-    - run: echo "$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb)"
     
-    - run: echo "URL_LT=$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb)"
+    - run: echo "URL_LT=$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"')"
     
-    - run: echo "URL_LT=$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb)" >> $GITHUB_ENV
+    - run: echo "URL_LT=$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"')" >> $GITHUB_ENV
     
     
     - name: Run Load Test
