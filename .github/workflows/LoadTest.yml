@@ -46,3 +46,6 @@ jobs:
         RUNTIME: "60s"
     - name: output
       run: echo ${{ steps.locust.outputs }}
+      
+      
+    - run: terraform -chdir=Infra_CI/env/Homolog/ destroy -auto-approve 
