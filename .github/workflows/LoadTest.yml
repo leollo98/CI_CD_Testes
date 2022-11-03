@@ -33,7 +33,7 @@ jobs:
       uses: apardo04/locust-github-action@master
       id: locust
       with:
-        URL:  ${{github.URL_LB}}
+        URL:  ${{ env.URL_LB }}
         USERS: "50"
         RATE: "5"
         RUNTIME: "60s"
