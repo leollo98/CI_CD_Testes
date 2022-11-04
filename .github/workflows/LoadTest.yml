@@ -26,9 +26,7 @@ jobs:
     
     - run: terraform -chdir=Infra_CI/env/Homolog/ apply -auto-approve
     
-    - run: echo "URL_LT=$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"')"
-    
-    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb
+    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb  | tr -d '"'
       id: URL
       
     - run: echo ${{  join(steps.URL.outputs.stdout) }}
