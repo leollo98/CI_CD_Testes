@@ -28,14 +28,18 @@ jobs:
     
     - run: echo "URL_LT=$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"')"
     
-    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"' > ULR.text
+    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"'
+      id: URL
+      
+    - run: echo ${{ steps.URL.outputs }}
     
+    - run: echo "URL_LT=$(cat ULR.text)" >> GITHUB_ENV
     
     - name: Run Load Test
       uses: apardo04/locust-github-action@master
       id: locust
       with:
-        URL:  $(./ULR.text)
+        URL:  ${{./ULR.text}}
         USERS: "50"
         RATE: "5"
         RUNTIME: "60s"
