@@ -31,7 +31,7 @@ jobs:
     - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb
       id: URL
       
-    - run: echo ${{ steps.URL.outputs.* }}
+    - run: echo ${{  join(steps.URL.outputs.*) }}
     
     - name: Run Load Test
       uses: apardo04/locust-github-action@master
