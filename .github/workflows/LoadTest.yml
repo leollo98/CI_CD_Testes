@@ -26,7 +26,7 @@ jobs:
     
     - run: terraform -chdir=Infra_CI/env/Homolog/ apply -auto-approve
     
-    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb  | tr -d '"'
+    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb  | tr -d '"' ; echo :8000/
       id: URL
       
     - run: echo ${{  join(steps.URL.outputs.stdout) }}
@@ -35,7 +35,7 @@ jobs:
       uses: apardo04/locust-github-action@master
       id: locust
       with:
-        URL:  ${{ join(steps.URL.outputs.stdout) }}:8000/
+        URL:  ${{ join(steps.URL.outputs.stdout) }}
         USERS: "50"
         RATE: "5"
         RUNTIME: "60s"
