@@ -28,7 +28,7 @@ jobs:
     
     - run: echo "URL_LT=$(terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"')"
     
-    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"'
+    - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb
       id: URL
       
     - run: echo ${{ steps.URL.outputs.* }}
