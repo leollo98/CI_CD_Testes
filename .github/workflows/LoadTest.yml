@@ -31,9 +31,7 @@ jobs:
     - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb | tr -d '"'
       id: URL
       
-    - run: echo ${{ steps.URL.outputs }}
-    
-    - run: echo "URL_LT=$(cat ULR.text)" >> GITHUB_ENV
+    - run: echo ${{ steps.URL.outputs.* }}
     
     - name: Run Load Test
       uses: apardo04/locust-github-action@master
