@@ -37,7 +37,7 @@ jobs:
       uses: apardo04/locust-github-action@master
       id: locust
       with:
-        URL: ${{ format( "{1}{2}" ,steps.URL.outputs.stdout,"/bruno" }}
+        URL: ${{ format( '{1}{2}' , steps.URL.outputs.stdout , '/bruno' }}
         USERS: "1"
         RATE: "5"
         RUNTIME: "60s"
