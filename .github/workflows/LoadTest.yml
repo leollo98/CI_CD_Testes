@@ -30,7 +30,7 @@ jobs:
     - run: echo "$(terraform -chdir=Infra_CI/env/Homolog/ output -raw IP_alb)/bruno"
       id: URL
     
-    - run: echo ${{  steps.URL1.outputs.stdout }} 
+    - run: echo ${{  steps.URL.outputs.stdout }} 
       
     - run: sleep 30s
       
@@ -39,7 +39,7 @@ jobs:
       uses: apardo04/locust-github-action@master
       id: locust
       with:
-        URL: steps.URL.outputs.stdout
+        URL: ${{steps.URL.outputs.stdout}}
         USERS: "1"
         RATE: "5"
         RUNTIME: "60s"
