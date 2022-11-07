@@ -35,7 +35,7 @@ jobs:
       uses: apardo04/locust-github-action@master
       id: locust
       with:
-        URL:  "${{ join(steps.URL.outputs.stdout) }}:8000/"
+        URL:  ${{ join(steps.URL.outputs.stdout) }}
         USERS: "50"
         RATE: "5"
         RUNTIME: "60s"
