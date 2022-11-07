@@ -30,13 +30,15 @@ jobs:
     - run: terraform -chdir=Infra_CI/env/Homolog/ output IP_alb  | tr -d '"' ; 
       id: URL
       
+    - run: sleep 30s
+      
     - name: Run Load Test
       continue-on-error: true
       uses: apardo04/locust-github-action@master
       id: locust
       with:
         URL:  ${{ join(steps.URL.outputs.stdout) }}
-        USERS: "50"
+        USERS: "1"
         RATE: "5"
         RUNTIME: "60s"
       
