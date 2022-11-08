@@ -60,4 +60,4 @@ jobs:
     
     - run: sleep 60s
       
-    - run: terraform -chdir=Infra_CI/env/Homolog/ destroy -auto-approve 
+    #- run: terraform -chdir=Infra_CI/env/Homolog/ destroy -auto-approve 
