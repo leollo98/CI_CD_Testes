@@ -25,6 +25,8 @@ jobs:
       
     - run: terraform -chdir=Infra_CI/env/Homolog/ init
     
+    - run: terraform -chdir=Infra_CI/env/Homolog/ destroy -auto-approve 
+    
     - run: terraform -chdir=Infra_CI/env/Homolog/ apply -auto-approve
     
     - run: echo "$(terraform -chdir=Infra_CI/env/Homolog/ output -raw IP_alb)"
