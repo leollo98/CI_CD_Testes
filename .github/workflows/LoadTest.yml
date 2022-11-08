@@ -30,7 +30,7 @@ jobs:
     - run: echo "$(terraform -chdir=Infra_CI/env/Homolog/ output -raw IP_alb)"
       id: URL
       
-    - run: sleep 30s
+    - run: sleep 60s
     
     - uses: actions/setup-python@v4
       with:
@@ -57,6 +57,7 @@ jobs:
     - name: Run Load Test
       continue-on-error: true
       run: locust -f locustfile.py --headless -u 1 -r 5 --run-time 60s -H http://${{  steps.URL.outputs.stdout }}
+    
+    - run: sleep 60s
       
-      
-#    - run: terraform -chdir=Infra_CI/env/Homolog/ destroy -auto-approve 
+    - run: terraform -chdir=Infra_CI/env/Homolog/ destroy -auto-approve 
