@@ -74,6 +74,6 @@ jobs:
     
   LoadTest:
     needs: docker
-    if: github.head_ref == 'refs/heads/Prod'
+    if: github.head_ref == 'refs/heads/main'
     uses: ./.github/workflows/LoadTest.yml
     secrets: inherit
