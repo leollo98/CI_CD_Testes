@@ -24,6 +24,8 @@ jobs:
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog init 
     
+    - run: apt update ; apt install graphviz -y
+    
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog graph | dot -Tsvg > graph.svg
     
     - name: Upload a Build Artifact
