@@ -25,12 +25,6 @@ jobs:
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster init 
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog init 
-    
-    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog destroy -auto-approve
-    
-    - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster destroy -auto-approve
-    
-    - run: return 1
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster apply -auto-approve
       continue-on-error: true
