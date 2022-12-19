@@ -27,6 +27,8 @@ jobs:
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster destroy -auto-approve
       continue-on-error: true
       
+    - run: return 1
+      
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster apply -auto-approve
     
     - name: Kubectl tool installer
