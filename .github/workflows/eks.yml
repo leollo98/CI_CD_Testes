@@ -23,18 +23,10 @@ jobs:
       uses: hashicorp/setup-terraform@v2.0.3
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster init 
-      
-    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog init 
-    
-    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog destroy -auto-approve
-      continue-on-error: true
     
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster destroy -auto-approve
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster apply -auto-approve
-      continue-on-error: true
-  
-    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog apply -auto-approve
     
     - name: Kubectl tool installer
       uses: Azure/setup-kubectl@v3
