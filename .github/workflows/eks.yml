@@ -24,7 +24,8 @@ jobs:
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog init 
     
-    - run: apt update ; apt install graphviz -y
+    - name: Setup Graphviz
+      uses: ts-graphviz/setup-graphviz@v1
     
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog graph | dot -Tsvg > graph.svg
     
