@@ -24,9 +24,12 @@ jobs:
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog init 
     
-    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog graph
+    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog graph | dot -Tsvg > graph.svg
     
-    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog destroy -auto-approve
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        path: graph.svg
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog apply -auto-approve -target="module.prod.module.eks"
   
