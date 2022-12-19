@@ -25,8 +25,7 @@ jobs:
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster init 
     
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster destroy -auto-approve
-    
-    - run: return 1
+      continue-on-error: true
       
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Cluster apply -auto-approve
     
