@@ -38,6 +38,6 @@ jobs:
     
     - run: aws eks update-kubeconfig --region us-west-2 --name homolog2
     
-    - run: ls -lha
+    - run: ls -lha /home/runner/.kube/config
     
     - run: kubectl get svc
