@@ -38,10 +38,10 @@ jobs:
     
     - run: aws eks update-kubeconfig --region us-west-2 --name homolog2
     
-    - run: kubectl create secret generic db_user --from-literal=USER=${{ secrets.DBUSER }} --kubeconfig /home/runner/.kube/config
-    - run: kubectl create secret generic db_password --from-literal=PASSWORD=${{ secrets.DBPASSWORD }}
-    - run: kubectl create secret generic db_name --from-literal=DBNAME=${{ secrets.DBNAME }}
-    - run: kubectl create secret generic db_host --from-literal=HOST=${{ secrets.DBHOST }}
-    - run: kubectl create secret generic db_port --from-literal=PORT=${{ secrets.DBPORT }}
+    - run: kubectl create secret generic dbuser --from-literal=USER=${{ secrets.DBUSER }} --kubeconfig /home/runner/.kube/config
+    - run: kubectl create secret generic dbpassword --from-literal=PASSWORD=${{ secrets.DBPASSWORD }}
+    - run: kubectl create secret generic dbname --from-literal=DBNAME=${{ secrets.DBNAME }}
+    - run: kubectl create secret generic dbhost --from-literal=HOST=${{ secrets.DBHOST }}
+    - run: kubectl create secret generic dbport --from-literal=PORT=${{ secrets.DBPORT }}
     
     - run: kubectl apply -f Infra_CI_Kubernetes/go.yaml
