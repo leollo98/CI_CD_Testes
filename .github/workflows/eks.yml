@@ -38,10 +38,15 @@ jobs:
     
     - run: aws eks update-kubeconfig --region us-west-2 --name homolog2
     
-    - run: kubectl create secret generic dbuser --from-literal=USER=${{ secrets.DBUSER }} --kubeconfig /home/runner/.kube/config
+    - run: kubectl delete secret dbuser --ignore-not-found
+    - run: kubectl create secret generic dbuser --from-literal=USER=${{ secrets.DBUSER }}
+    - run: kubectl delete secret dbpassword --ignore-not-found
     - run: kubectl create secret generic dbpassword --from-literal=PASSWORD=${{ secrets.DBPASSWORD }}
+    - run: kubectl delete secret dbname --ignore-not-found
     - run: kubectl create secret generic dbname --from-literal=DBNAME=${{ secrets.DBNAME }}
+    - run: kubectl delete secret dbhost --ignore-not-found
     - run: kubectl create secret generic dbhost --from-literal=HOST=${{ secrets.DBHOST }}
+    - run: kubectl delete secret dbport --ignore-not-found
     - run: kubectl create secret generic dbport --from-literal=PORT=${{ secrets.DBPORT }}
     
     - run: kubectl apply -f Infra_CI_Kubernetes/go.yaml
