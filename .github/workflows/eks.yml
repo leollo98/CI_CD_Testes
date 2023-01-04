@@ -54,9 +54,8 @@ jobs:
     - run: kubectl delete secret port --ignore-not-found
     - run: kubectl create secret generic port --from-literal=PORT=8000
     
+    - run: kubectl apply -f Infra_CI_Kubernetes/go.yaml
     
-    - run: kubectl set image -f Infra_CI_Kubernetes/go.yaml go=leonardosartorello/go_ci:${{ github.run_number }} > go.yaml
-    
-    - run: kubectl apply -f go.yaml
+    - run: kubectl set image deployment/go-api go=leonardosartorello/go_ci:${{ github.run_number }}
     
     
